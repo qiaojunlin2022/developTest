@@ -22,8 +22,8 @@ class Driver():
             chrome_options = Options()
             chrome_options.add_experimental_option(
                 'excludeSwitches', ['enable-logging'])
-            chrome_driver = "/var/lib/docker/overlay2/692601d1d7bc3395f0ae485cd23ff32d5ed6e5adc5402548a1f499028f9762ae/diff/root/.cache/selenium/chromedriver/linux64/114.0.5735.90/chromedriver"
-            self.driver = webdriver.Chrome(executable_path=chrome_driver)
+            chrome_driver = "/usr/local/geckodriver"
+            self.driver = webdriver.Firefox(executable_path=chrome_driver)
             self.driver.maximize_window()
             self.driver.implicitly_wait(10)
             driver = self.driver
