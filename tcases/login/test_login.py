@@ -21,8 +21,7 @@ class TestLogin():
     @pytest.mark.parametrize('param', readJson(pconst.const_json_login))
     def test_01_login(self,param):
         self.plogin.open_url(pconst.const_url)
-        sleep(30)
+        sleep(10)
         self.plogin.input_user_pass(param['user_name'], param['password'])
-        sleep(1)
         self.plogin.button_login()
         sleep(1)
