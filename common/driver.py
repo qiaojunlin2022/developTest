@@ -7,6 +7,7 @@ from typing import List
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.remote.webdriver import WebElement
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -22,8 +23,8 @@ class Driver():
             chrome_options = Options()
             chrome_options.add_experimental_option(
                 'excludeSwitches', ['enable-logging'])
-            chrome_driver = "/usr/local/geckodriver"
-            self.driver = webdriver.Firefox(executable_path=chrome_driver)
+            s = Service(r"/usr/local/geckodriver")
+            self.driver = webdriver.Firefox(service = s)
             self.driver.maximize_window()
             self.driver.implicitly_wait(10)
             driver = self.driver
